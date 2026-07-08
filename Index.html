@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kunika - Pure Spices & Edible Oils</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2d2d2d;
+            background: #fcf8f0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== HEADER / NAV ========== */
+        header {
+            background: #1e3b2b;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: #f5c842;
+        }
+
+        nav a {
+            color: #fff;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+        nav a:hover {
+            color: #f5c842;
+        }
+        nav i {
+            margin-right: 5px;
+        }
+
+        /* ========== HERO VIDEO SECTION ========== */
+        .hero {
+            position: relative;
+            height: 92vh;
+            min-height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        .hero-content h1 span {
+            color: #f5c842;
+        }
+        .hero-content p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 20px auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .btn {
+            display: inline-block;
+            background: #f5c842;
+            color: #1e3b2b;
+            padding: 14px 40px;
+            font-weight: 700;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 200, 66, 0.4);
+        }
+        .btn:hover {
+            background: #ffd966;
+            transform: translateY(-3px);
+        }
+
+        /* ========== SECTION TITLES ========== */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #1e3b2b;
+        }
+        .section-title span {
+            color: #c47a2b;
+        }
+        .section-sub {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* ========== ABOUT ========== */
+        #about {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .about-grid {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-grid .text {
+            flex: 1;
+            min-width: 280px;
+        }
+        .about-grid .text h3 {
+            font-size: 2rem;
+            color: #1e3b2b;
+            margin-bottom: 15px;
+        }
+        .about-grid .text p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        .about-grid .image {
+            flex: 1;
+            min-width: 280px;
+            background: #e8ddd0;
+            height: 300px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #5a4a3a;
+            background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ========== PRODUCTS ========== */
+        #products {
+            padding: 80px 0;
+            background: #fcf8f0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border: 1px solid #f0ebe0;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .product-card .icon {
+            font-size: 3rem;
+            color: #c47a2b;
+            margin-bottom: 10px;
+        }
+        .product-card h4 {
+            font-size: 1.2rem;
+            color: #1e3b2b;
+        }
+        .product-card .price {
+            font-weight: 700;
+            color: #c47a2b;
+            font-size: 1.2rem;
+            margin: 8px 0;
+        }
+        .product-card .tag {
+            display: inline-block;
+            background: #e8ddd0;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #5a4a3a;
+        }
+        .whatsapp-order {
+            display: inline-block;
+            margin-top: 12px;
+            background: #25d366;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .whatsapp-order:hover {
+            background: #1ebe5c;
+        }
+        .whatsapp-order i {
+            margin-right: 6px;
+        }
+
+        /* ========== PROCESS ========== */
+        #process {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .step {
+            background: #fcf8f0;
+            padding: 30px 15px;
+            border-radius: 20px;
+            border-bottom: 4px solid #c47a2b;
+        }
+        .step .num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #c47a2b;
+        }
+        .step h4 {
+            color: #1e3b2b;
+            margin: 10px 0 5px;
+        }
+
+        /* ========== CONTACT ========== */
+        #contact {
+            padding: 80px 0;
+            background: #1e3b2b;
+            color: #fff;
+        }
+        #contact .section-title {
+            color: #fff;
+        }
+        #contact .section-title span {
+            color: #f5c842;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .contact-item {
+            background: rgba(255,255,255,0.06);
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 4px solid #f5c842;
+        }
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #f5c842;
+        }
+        .contact-item p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        .contact-item i {
+            margin-right: 10px;
+            color: #f5c842;
+        }
+        .map-placeholder {
+            background: #2a4f3a;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            border: 1px dashed #f5c842;
+        }
+
+        /* ========== SOCIAL BAR ========== */
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 25px 0 10px;
+        }
+        .social-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-bar a:hover {
+            background: #f5c842;
+            color: #1e3b2b;
+            border-color: #f5c842;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0f2319;
+            color: #aaa;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+        footer span {
+            color: #f5c842;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            nav a {
+                margin-left: 12px;
+                font-size: 13px;
+            }
+            .logo {
+                font-size: 22px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .about-grid {
+                flex-direction: column;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+    <div class="container header-content">
+        <div class="logo">Kunika<span>.</span></div>
+        <nav>
+            <a href="#about"><i class="fas fa-leaf"></i> About</a>
+            <a href="#products"><i class="fas fa-shopping-bag"></i> Products</a>
+            <a href="#process"><i class="fas fa-seedling"></i> Process</a>
+            <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <!-- Replace the src with your own video URL (upload to YouTube or use a free video host) -->
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Pure <span>Spices</span> &amp; <span>Oils</span></h1>
+        <p>From seed to spice — experience the authentic taste of Kunika. Handcrafted with tradition.</p>
+        <a href="#products" class="btn"><i class="fas fa-store"></i> Explore Our Range</a>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+    <div class="container">
+        <div class="section-title">About <span>Kunika</span></div>
+        <div class="section-sub">We bring you the purest spices and edible oils, crafted with care from farm to your kitchen.</div>
+        <div class="about-grid">
+            <div class="text">
+                <h3>From Our Barnad to Your Home</h3>
+                <p>
+                    <strong>Kunika</strong> is a family-run brand rooted in the heart of India. We specialize in 
+                    premium-quality ground spices — <strong>Haldi, Dhaniya, Red Chilli, Cumin</strong> — and 
+                    cold-pressed edible oils like <strong>Mustard &amp; Peanut</strong>.
+                </p>
+                <p>
+                    Every product is made using traditional methods, preserving the natural aroma, color, and 
+                    health benefits. We believe in transparency — what you see is what you get.
+                </p>
+                <p style="color:#c47a2b; font-weight:600;">
+                    <i class="fas fa-check-circle"></i> 100% Natural &nbsp;|&nbsp; 
+                    <i class="fas fa-check-circle"></i> No Preservatives &nbsp;|&nbsp; 
+                    <i class="fas fa-check-circle"></i> Farm-Fresh
+                </p>
+            </div>
+            <div class="image">
+                <!-- Background image set via CSS: spices & oils visual -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section id="products">
+    <div class="container">
+        <div class="section-title">Our <span>Products</span></div>
+        <div class="section-sub">Click <i class="fab fa-whatsapp" style="color:#25d366;"></i> to order directly on WhatsApp</div>
+
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-mortar-pestle"></i></div>
+                <h4>Haldi Powder</h4>
+                <div class="price">₹180 / kg</div>
+                <span class="tag">Pure Turmeric</span>
+                <br>
+                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Haldi%20Powder%20(₹180/kg)" target="_blank" class="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-seedling"></i></div>
+                <h4>Dhaniya Powder</h4>
+                <div class="price">₹160 / kg</div>
+                <span class="tag">Premium Coriander</span>
+                <br>
+                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Dhaniya%20Powder%20(₹160/kg)" target="_blank" class="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-fire"></i></div>
+                <h4>Red Chilli Powder</h4>
+                <div class="price">₹220 / kg</div>
+                <span class="tag">Kashmiri / Guntur</span>
+                <br>
+                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Red%20Chilli%20Powder%20(₹220/kg)" target="_blank" class="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-leaf"></i></div>
+                <h4>Cumin / Jeera</h4>
+                <div class="price">₹200 / kg</div>
+                <span class="tag">Premium Cumin</span>
+                <br>
+                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Cumin%20(₹200/kg)" target="_blank" class="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-flask"></i></div>
+                <h4>Mustard Oil</h4>
+                <div class="price">₹280 / L</div>
+                <span class="tag">Cold-Pressed</span>
+                <br>
+                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Mustard%20Oil%20(₹280/L)" target="_blank" class="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="icon"><i class="fas fa-bottle-droplet"></i></div>
+                <h4>Peanut Oil</h4>
+                <div class="price">₹320 / L</div>
+                <span class="tag">Cold-Pressed</span>
+                <br>
+                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Peanut%20Oil%20(₹320/L)" target="_blank" class="whatsapp-order">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+    <div class="container">
+        <div class="section-title">Our <span>Journey</span></div>
+        <div class="section-sub">From seed to your spice rack — every step is crafted with care.</div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="num">01</div>
+                <h4>🌱 Farm Sourcing</h4>
+                <p>We handpick the finest seeds and mustard from trusted local farms.</p>
+            </div>
+            <div class="step">
+                <div class="num">02</div>
+                <h4>☀️ Sun-Drying</h4>
+                <p>Natural sun-drying preserves the authentic flavor and colour.</p>
+            </div>
+            <div class="step">
+                <div class="num">03</div>
+                <h4>⚙️ Grinding &amp; Pressing</h4>
+                <p>Traditional grinding for spices and cold-pressing for pure oils.</p>
+            </div>
+            <div class="step">
+                <div class="num">04</div>
+                <h4>🏷️ Packaging</h4>
+                <p>Hygienically packed to retain freshness and aroma.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+    <div class="container">
+        <div class="section-title">Get in <span>Touch</span></div>
+        <div class="section-sub" style="color:#ddd;">We'd love to hear from you. Reach out to us anytime.</div>
+
+        <div class="contact-grid">
+
+            <div class="contact-item">
+                <h4><i class="fas fa-building"></i> Head Office</h4>
+                <p>123, Kunika Complex,<br>Main Road, City Name,<br>State - 110001</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@kunika.in</p>
+            </div>
+
+            <div class="contact-item">
+                <h4><i class="fas fa-industry"></i> Manufacturing Unit</h4>
+                <p>Plot No. 45, Industrial Area,<br>Village Name, District,<br>State - 201301</p>
+                <p><i class="fas fa-clock"></i> Mon–Sat: 9:00 AM – 6:00 PM</p>
+            </div>
+
+            <div class="contact-item">
+                <h4><i class="fas fa-map-pin"></i> Google Maps</h4>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt" style="font-size:1.8rem; color:#f5c842;"></i>
+                    <p style="margin-top:10px;">
+                        📍 Head Office:<br>
+                        <a href="https://www.google.com/maps?q=New+Delhi" target="_blank" style="color:#f5c842; text-decoration:underline;">
+                            View on Google Maps
+                        </a>
+                    </p>
+                    <p style="margin-top:10px;">
+                        📍 Manufacturing Unit:<br>
+                        <a href="https://www.google.com/maps?q=Noida" target="_blank" style="color:#f5c842; text-decoration:underline;">
+                            View on Google Maps
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="social-bar">
+            <a href="https://instagram.com/yourkunika" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://facebook.com/yourkunika" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://g.page/yourkunika" target="_blank"><i class="fab fa-google"></i> Google Listing</a>
+            <a href="https://wa.me/919999999999" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <div class="container">
+        &copy; 2026 <span>Kunika</span>. All rights reserved. | Made with <i class="fas fa-heart" style="color:#c47a2b;"></i> from India
+    </div>
+</footer>
+
+</body>
+</html>
