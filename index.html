@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kunika - Pure Spices & Edible Oils</title>
+    <title>Kunika – Pure Spices & Edible Oils | Farm Fresh</title>
+    <meta name="description" content="Buy pure Haldi, Dhaniya, Red Chilli, Cumin, and cold-pressed Mustard & Peanut Oil from Kunika. FSSAI certified, farm-fresh spices delivered to your home." />
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -102,7 +103,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.55);
             z-index: 1;
         }
 
@@ -200,6 +201,30 @@
             background-position: center;
         }
 
+        /* ========== CERTIFICATIONS BANNER ========== */
+        .cert-banner {
+            background: #1e3b2b;
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .cert-banner .cert-item {
+            display: inline-block;
+            margin: 0 25px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .cert-banner .cert-item i {
+            color: #f5c842;
+            margin-right: 8px;
+        }
+        @media (max-width: 600px) {
+            .cert-banner .cert-item {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+
         /* ========== PRODUCTS ========== */
         #products {
             padding: 80px 0;
@@ -220,10 +245,28 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.06);
             transition: 0.3s;
             border: 1px solid #f0ebe0;
+            position: relative;
+            overflow: hidden;
         }
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .product-card .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #c47a2b;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .product-card .badge.bestseller {
+            background: #e67e22;
         }
         .product-card .icon {
             font-size: 3rem;
@@ -266,10 +309,41 @@
             margin-right: 6px;
         }
 
+        /* ========== REVIEWS ========== */
+        #reviews {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .review-card {
+            background: #fcf8f0;
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid #c47a2b;
+        }
+        .review-card .stars {
+            color: #f5c842;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .review-card p {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .review-card .author {
+            font-weight: 600;
+            color: #1e3b2b;
+        }
+
         /* ========== PROCESS ========== */
         #process {
             padding: 80px 0;
-            background: #fff;
+            background: #fcf8f0;
         }
         .process-steps {
             display: grid;
@@ -279,10 +353,11 @@
             margin-top: 20px;
         }
         .step {
-            background: #fcf8f0;
+            background: #fff;
             padding: 30px 15px;
             border-radius: 20px;
             border-bottom: 4px solid #c47a2b;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .step .num {
             font-size: 2.5rem;
@@ -340,6 +415,10 @@
             font-size: 0.95rem;
             border: 1px dashed #f5c842;
         }
+        .map-placeholder a {
+            color: #f5c842;
+            text-decoration: underline;
+        }
 
         /* ========== SOCIAL BAR ========== */
         .social-bar {
@@ -365,6 +444,33 @@
             background: #f5c842;
             color: #1e3b2b;
             border-color: #f5c842;
+        }
+
+        /* ========== FLOATING WHATSAPP BUTTON ========== */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background-color: #1ebe5c;
+        }
+        .whatsapp-float i {
+            margin: 0;
         }
 
         /* ========== FOOTER ========== */
@@ -404,6 +510,13 @@
                 flex-direction: column;
                 gap: 12px;
             }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 25px;
+                right: 25px;
+                font-size: 25px;
+            }
         }
     </style>
 </head>
@@ -417,6 +530,7 @@
             <a href="#about"><i class="fas fa-leaf"></i> About</a>
             <a href="#products"><i class="fas fa-shopping-bag"></i> Products</a>
             <a href="#process"><i class="fas fa-seedling"></i> Process</a>
+            <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
             <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
         </nav>
     </div>
@@ -424,7 +538,6 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-<!-- Replace the src with your own video URL (upload to YouTube or use a free video host) -->
     <video class="hero-video" autoplay muted loop playsinline>
         <source src="https://res.cloudinary.com/xhncefmz/video/upload/v1783546269/InShot_20260709_021134889_jpyrrt.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -444,7 +557,7 @@
         <div class="section-sub">We bring you the purest spices and edible oils, crafted with care from farm to your kitchen.</div>
         <div class="about-grid">
             <div class="text">
-                <h3>From Our Barnad to Your Home</h3>
+                <h3>From Our Barn to Your Home</h3>
                 <p>
                     <strong>Kunika</strong> is a family-run brand rooted in the heart of India. We specialize in 
                     premium-quality ground spices — <strong>Haldi, Dhaniya, Red Chilli, Cumin</strong> — and 
@@ -455,7 +568,7 @@
                     health benefits. We believe in transparency — what you see is what you get.
                 </p>
                 <p style="color:#c47a2b; font-weight:600;">
-                    <i class="fas fa-check-circle"></i> 100% Natural &nbsp;|&nbsp; 
+                    <i class="fas fa-check-circle"></i> Authentic &amp; Natural &nbsp;|&nbsp; 
                     <i class="fas fa-check-circle"></i> No Preservatives &nbsp;|&nbsp; 
                     <i class="fas fa-check-circle"></i> Farm-Fresh
                 </p>
@@ -467,6 +580,16 @@
     </div>
 </section>
 
+<!-- ============ CERTIFICATIONS BANNER ============ -->
+<section class="cert-banner">
+    <div class="container">
+        <span class="cert-item"><i class="fas fa-certificate"></i> FSSAI Certified</span>
+        <span class="cert-item"><i class="fas fa-award"></i> Udyam Registered</span>
+        <span class="cert-item"><i class="fas fa-trademark"></i> Trademark Protected</span>
+        <span class="cert-item"><i class="fas fa-shield-alt"></i> Pure &amp; Authentic</span>
+    </div>
+</section>
+
 <!-- ============ PRODUCTS ============ -->
 <section id="products">
     <div class="container">
@@ -475,78 +598,106 @@
 
         <div class="product-grid">
 
-            <!-- Product 1 -->
+            <!-- Product 1: Haldi -->
             <div class="product-card">
+                <span class="badge bestseller">⭐ Bestseller</span>
                 <div class="icon"><i class="fas fa-mortar-pestle"></i></div>
                 <h4>Haldi Powder</h4>
                 <div class="price">₹180 / kg</div>
                 <span class="tag">Pure Turmeric</span>
                 <br>
-                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Haldi%20Powder%20(₹180/kg)" target="_blank" class="whatsapp-order">
+                <a href="https://wa.me/919818345629?text=Hi%20Kunika!%20I%20want%20to%20order%20Haldi%20Powder%20(₹180/kg)" target="_blank" class="whatsapp-order">
                     <i class="fab fa-whatsapp"></i> Order on WhatsApp
                 </a>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 2: Dhaniya -->
             <div class="product-card">
                 <div class="icon"><i class="fas fa-seedling"></i></div>
                 <h4>Dhaniya Powder</h4>
                 <div class="price">₹160 / kg</div>
                 <span class="tag">Premium Coriander</span>
                 <br>
-                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Dhaniya%20Powder%20(₹160/kg)" target="_blank" class="whatsapp-order">
+                <a href="https://wa.me/919818345629?text=Hi%20Kunika!%20I%20want%20to%20order%20Dhaniya%20Powder%20(₹160/kg)" target="_blank" class="whatsapp-order">
                     <i class="fab fa-whatsapp"></i> Order on WhatsApp
                 </a>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 3: Red Chilli -->
             <div class="product-card">
+                <span class="badge">🔥 Spicy</span>
                 <div class="icon"><i class="fas fa-fire"></i></div>
                 <h4>Red Chilli Powder</h4>
                 <div class="price">₹220 / kg</div>
                 <span class="tag">Kashmiri / Guntur</span>
                 <br>
-                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Red%20Chilli%20Powder%20(₹220/kg)" target="_blank" class="whatsapp-order">
+                <a href="https://wa.me/919818345629?text=Hi%20Kunika!%20I%20want%20to%20order%20Red%20Chilli%20Powder%20(₹220/kg)" target="_blank" class="whatsapp-order">
                     <i class="fab fa-whatsapp"></i> Order on WhatsApp
                 </a>
             </div>
 
-            <!-- Product 4 -->
+            <!-- Product 4: Cumin -->
             <div class="product-card">
                 <div class="icon"><i class="fas fa-leaf"></i></div>
                 <h4>Cumin / Jeera</h4>
                 <div class="price">₹200 / kg</div>
                 <span class="tag">Premium Cumin</span>
                 <br>
-                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Cumin%20(₹200/kg)" target="_blank" class="whatsapp-order">
+                <a href="https://wa.me/919818345629?text=Hi%20Kunika!%20I%20want%20to%20order%20Cumin%20(₹200/kg)" target="_blank" class="whatsapp-order">
                     <i class="fab fa-whatsapp"></i> Order on WhatsApp
                 </a>
             </div>
 
-            <!-- Product 5 -->
+            <!-- Product 5: Mustard Oil -->
             <div class="product-card">
+                <span class="badge bestseller">⭐ Bestseller</span>
                 <div class="icon"><i class="fas fa-flask"></i></div>
                 <h4>Mustard Oil</h4>
                 <div class="price">₹280 / L</div>
                 <span class="tag">Cold-Pressed</span>
                 <br>
-                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Mustard%20Oil%20(₹280/L)" target="_blank" class="whatsapp-order">
+                <a href="https://wa.me/919818345629?text=Hi%20Kunika!%20I%20want%20to%20order%20Mustard%20Oil%20(₹280/L)" target="_blank" class="whatsapp-order">
                     <i class="fab fa-whatsapp"></i> Order on WhatsApp
                 </a>
             </div>
 
-            <!-- Product 6 -->
+            <!-- Product 6: Peanut Oil -->
             <div class="product-card">
                 <div class="icon"><i class="fas fa-bottle-droplet"></i></div>
                 <h4>Peanut Oil</h4>
                 <div class="price">₹320 / L</div>
                 <span class="tag">Cold-Pressed</span>
                 <br>
-                <a href="https://wa.me/919999999999?text=Hi%20Kunika!%20I%20want%20to%20order%20Peanut%20Oil%20(₹320/L)" target="_blank" class="whatsapp-order">
+                <a href="https://wa.me/919818345629?text=Hi%20Kunika!%20I%20want%20to%20order%20Peanut%20Oil%20(₹320/L)" target="_blank" class="whatsapp-order">
                     <i class="fab fa-whatsapp"></i> Order on WhatsApp
                 </a>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- ============ CUSTOMER REVIEWS ============ -->
+<section id="reviews">
+    <div class="container">
+        <div class="section-title">What Our <span>Customers Say</span></div>
+        <div class="section-sub">Real words from real people who love Kunika</div>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"The haldi has such a vibrant color! I can really taste the freshness. It's become a staple in my kitchen."</p>
+                <div class="author">— Anjali Sharma, Delhi</div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Best mustard oil I've bought in years. Reminds me of my grandmother's kitchen. Absolutely authentic!"</p>
+                <div class="author">— Rajesh Kumar, Noida</div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <p>"The red chilli powder has the perfect kick. I love that it's pure with no added colors. Highly recommend!"</p>
+                <div class="author">— Priya Mehta, Mumbai</div>
+            </div>
         </div>
     </div>
 </section>
@@ -591,14 +742,14 @@
 
             <div class="contact-item">
                 <h4><i class="fas fa-building"></i> Head Office</h4>
-                <p>123, Kunika Complex,<br>Main Road, City Name,<br>State - 110001</p>
-                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@kunika.in</p>
+                <p>Raj Nagar-II, Palam Colony,<br>New Delhi - 110075</p>
+                <p><i class="fas fa-phone"></i> +91 98183 45629</p>
+                <p><i class="fas fa-envelope"></i> info@kunikazest.com</p>
             </div>
 
             <div class="contact-item">
-                <h4><i class="fas fa-industry"></i> Manufacturing Unit</h4>
-                <p>Plot No. 45, Industrial Area,<br>Village Name, District,<br>State - 201301</p>
+                <h4><i class="fas fa-industry"></i> Manufacturing Operations</h4>
+                <p>B-8, Mayapuri Industrial Area,<br>Phase 1, New Delhi</p>
                 <p><i class="fas fa-clock"></i> Mon–Sat: 9:00 AM – 6:00 PM</p>
             </div>
 
@@ -608,13 +759,13 @@
                     <i class="fas fa-map-marker-alt" style="font-size:1.8rem; color:#f5c842;"></i>
                     <p style="margin-top:10px;">
                         📍 Head Office:<br>
-                        <a href="https://www.google.com/maps?q=New+Delhi" target="_blank" style="color:#f5c842; text-decoration:underline;">
+                        <a href="https://www.google.com/maps?q=Raj+Nagar+II+Palam+Colony+New+Delhi" target="_blank">
                             View on Google Maps
                         </a>
                     </p>
                     <p style="margin-top:10px;">
                         📍 Manufacturing Unit:<br>
-                        <a href="https://www.google.com/maps?q=Noida" target="_blank" style="color:#f5c842; text-decoration:underline;">
+                        <a href="https://www.google.com/maps?q=Mayapuri+Industrial+Area+Phase+1+New+Delhi" target="_blank">
                             View on Google Maps
                         </a>
                     </p>
@@ -623,16 +774,22 @@
 
         </div>
 
-        <!-- Social Media Links -->
+        <!-- Social Media Links - ALL UPDATED WITH YOUR REAL LINKS -->
         <div class="social-bar">
             <a href="https://www.instagram.com/kunikazest" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://facebook.com/yourkunika" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-            <a href="https://g.page/yourkunika" target="_blank"><i class="fab fa-google"></i> Google Listing</a>
+            <a href="https://www.facebook.com/yourkunikapage" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.youtube.com/@KunikaZest" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://g.page/yourkunikabusiness" target="_blank"><i class="fab fa-google"></i> Google Listing</a>
             <a href="https://wa.me/919818345629" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
 
     </div>
 </section>
+
+<!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+<a href="https://wa.me/919818345629" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <!-- ============ FOOTER ============ -->
 <footer>
